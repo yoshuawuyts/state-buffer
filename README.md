@@ -16,7 +16,7 @@ $ npm install state-buffer
 ```js
 const buffer = require('state-buffer')
 
-const b = buffer(end => {
+const b = buffer((data, end) => {
   // do async stuff
   end(err, res)
 })
@@ -42,7 +42,7 @@ b.on('finish', () => {
 ```
 
 ## API
-### b = buffer(cb(end))
+### b = buffer(data, cb(end))
 Create a state buffer that executes a function when called. `end` must be
 called when done to unlock the buffer.
 
