@@ -5,6 +5,11 @@
 [![Downloads][downloads-image]][downloads-url]
 [![js-standard-style][standard-image]][standard-url]
 
+__[deprecated]__: Before finishing this I discovered
+[`inflight`](https://github.com/npm/inflight) which has both a simpler
+interface and solves the problem in a smarter way. I recommend using
+`inflight`.
+
 Manage in-flight application state changes.
 
 ## Installation
@@ -16,11 +21,15 @@ $ npm install state-buffer
 ```js
 const buffer = require('state-buffer')
 
+// wrap an async function
 const b = buffer((data, end) => {
   // do async stuff
   end(err, res)
 })
 
+// call the wrapped async function
+// and call a callback when done.
+// only a single call is allowed
 b(data, (err, res) => {
   if (err) return console.error('uh oh, error state')
   console.log('all good!')
