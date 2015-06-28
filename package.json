@@ -1,6 +1,6 @@
 {
   "name": "state-buffer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "state-buffer",
   "main": "index.js",
   "scripts": {
